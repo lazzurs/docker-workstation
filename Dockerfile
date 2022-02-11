@@ -26,7 +26,7 @@ WORKDIR /home/lazzurs
 RUN git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
 # Install chezmoi
-RUN $ sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lazzurs
+RUN sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lazzurs
 
 # Favourite shell time
 ENTRYPOINT ["/bin/bash"]
