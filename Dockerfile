@@ -22,6 +22,8 @@ USER lazzurs
 # Switch to my homedir
 WORKDIR /home/lazzurs
 
+# Install bash git prompt
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
 # Favourite shell time
 ENTRYPOINT ["/bin/bash"]
