@@ -9,9 +9,15 @@ RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet m
 # Install Bitwarden CLI
 RUN npm install -g @bitwarden/cli
 
-# TODO: AWS CLI
-# TODO: AWS SSM
-# TODO: chezmoi
+# Install awscli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
+
+# Install AWS Session Manager plugin
+
+RUN if [ $(uname -m) = "x86_64" ]; then curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"; elif [ $(uname -m) = "aarch64" ]; then curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"; fi
+RUN dpkg -i session-manager-plugin.deb
 
 # Add my own user
 RUN useradd -s /bin/bash -m lazzurs
