@@ -4,7 +4,7 @@ FROM debian
 RUN apt update && apt upgrade -y 
 
 # Install simple tools with apt
-RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man
+RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp
 
 # Install Bitwarden CLI
 RUN npm install -g @bitwarden/cli
