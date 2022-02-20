@@ -1,5 +1,9 @@
 FROM debian
 
+# Versions of apps
+ARG terraform_version=1.1.6
+ARG terragrunt_version=0.36.1
+
 # Ensure we are fully up to date
 RUN apt update && apt upgrade -y 
 
@@ -18,6 +22,14 @@ RUN ./aws/install
 
 RUN if [ $(uname -m) = "x86_64" ]; then curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"; elif [ $(uname -m) = "aarch64" ]; then curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"; fi
 RUN dpkg -i session-manager-plugin.deb
+
+# Install Terraform
+RUN if [ $(uname -m) = "x86_64" ]; then curl "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip" -o "terraform.zip"; elif [ $(uname -m) = "aarch64" ]; then curl "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_arm64.zip" -o "terraform.zip"; fi
+RUN unzip terraform.zip -d /usr/local/bin/
+
+# Install Terragrunt
+RUN if [ $(uname -m) = "x86_64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/${terragrunt_version}/terragrunt_linux_amd64"; elif [ $(uname -m) = "aarch64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/${terragrunt_version}/terragrunt_linux_arm64"; fi
+RUN chmod +x /usr/local/bin/terragrunt
 
 # Add my own user
 RUN useradd -s /bin/bash -m lazzurs
