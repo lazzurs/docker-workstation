@@ -37,7 +37,7 @@ RUN if [ $(uname -m) = "x86_64" ]; then curl "https://releases.hashicorp.com/pac
 RUN unzip packer.zip -d /usr/local/bin/
 
 # Install golang
-RUN if [ $(uname -m) = "x86_64" ]; then curl "https://go.dev/dl/go${golang_version}.linux-amd64.tar.gz" -o "golang.tar.gz"; elif [ $(uname -m) = "aarch64" ]; then curl "https://go.dev/dl/go${golang_version}.linux-arm64.tar.gz" -o "golang.tar.gz"; fi
+RUN if [ $(uname -m) = "x86_64" ]; then curl -L "https://go.dev/dl/go${golang_version}.linux-amd64.tar.gz" -o "golang.tar.gz"; elif [ $(uname -m) = "aarch64" ]; then curl -L "https://go.dev/dl/go${golang_version}.linux-arm64.tar.gz" -o "golang.tar.gz"; fi
 RUN tar -C /usr/local -xzf golang.tar.gz
 
 # Add my own user
