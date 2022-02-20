@@ -3,12 +3,13 @@ FROM debian
 # Versions of apps
 ARG terraform_version=1.1.6
 ARG terragrunt_version=0.36.1
+ARG packer_version=1.7.10
 
 # Ensure we are fully up to date
 RUN apt update && apt upgrade -y 
 
 # Install simple tools with apt
-RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp
+RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp jq
 
 # Install Bitwarden CLI
 RUN npm install -g @bitwarden/cli
@@ -30,6 +31,10 @@ RUN unzip terraform.zip -d /usr/local/bin/
 # Install Terragrunt
 RUN if [ $(uname -m) = "x86_64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/${terragrunt_version}/terragrunt_linux_amd64"; elif [ $(uname -m) = "aarch64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/${terragrunt_version}/terragrunt_linux_arm64"; fi
 RUN chmod +x /usr/local/bin/terragrunt
+
+# Install Packer (jq for parsing manifest files)
+RUN if [ $(uname -m) = "x86_64" ]; then curl "https://releases.hashicorp.com/packer/${packer_version}/packer_${packer_version}_linux_amd64.zip" -o "packer.zip"; elif [ $(uname -m) = "aarch64" ]; then curl "https://releases.hashicorp.com/packer/${packer_version}/packer_${packer_version}_linux_arm64.zip" -o "packer.zip"; fi
+RUN unzip packer.zip -d /usr/local/bin/
 
 # Add my own user
 RUN useradd -s /bin/bash -m lazzurs
