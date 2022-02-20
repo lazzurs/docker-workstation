@@ -4,6 +4,7 @@ FROM debian
 ARG terraform_version=1.1.6
 ARG terragrunt_version=0.36.1
 ARG packer_version=1.7.10
+ARG golang_version=1.17.7
 
 # Ensure we are fully up to date
 RUN apt update && apt upgrade -y 
@@ -20,7 +21,6 @@ RUN unzip awscliv2.zip
 RUN ./aws/install
 
 # Install AWS Session Manager plugin
-
 RUN if [ $(uname -m) = "x86_64" ]; then curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"; elif [ $(uname -m) = "aarch64" ]; then curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"; fi
 RUN dpkg -i session-manager-plugin.deb
 
@@ -35,6 +35,10 @@ RUN chmod +x /usr/local/bin/terragrunt
 # Install Packer (jq for parsing manifest files)
 RUN if [ $(uname -m) = "x86_64" ]; then curl "https://releases.hashicorp.com/packer/${packer_version}/packer_${packer_version}_linux_amd64.zip" -o "packer.zip"; elif [ $(uname -m) = "aarch64" ]; then curl "https://releases.hashicorp.com/packer/${packer_version}/packer_${packer_version}_linux_arm64.zip" -o "packer.zip"; fi
 RUN unzip packer.zip -d /usr/local/bin/
+
+# Install golang
+RUN if [ $(uname -m) = "x86_64" ]; then curl "https://go.dev/dl/go${golang_version}.linux-amd64.tar.gz" -o "golang.tar.gz"; elif [ $(uname -m) = "aarch64" ]; then curl "https://go.dev/dl/go${golang_version}.linux-arm64.tar.gz" -o "golang.tar.gz"; fi
+RUN tar -C /usr/local -xzf golang.tar.gz
 
 # Add my own user
 RUN useradd -s /bin/bash -m lazzurs
