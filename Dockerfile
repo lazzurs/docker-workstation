@@ -10,7 +10,7 @@ ARG golang_version=1.17.7
 RUN apt update && apt upgrade -y 
 
 # Install simple tools with apt
-RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp jq
+RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp jq bind9-host whois
 
 # Install Bitwarden CLI
 RUN npm install -g @bitwarden/cli
