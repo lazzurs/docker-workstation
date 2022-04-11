@@ -1,10 +1,10 @@
 FROM debian
 
 # Versions of apps
-ARG terraform_version=1.1.6
-ARG terragrunt_version=0.36.1
-ARG packer_version=1.7.10
-ARG golang_version=1.17.7
+ARG terraform_version=1.1.8
+ARG terragrunt_version=0.36.6
+ARG packer_version=1.8.0
+ARG golang_version=1.18
 
 # Ensure we are fully up to date
 RUN apt update && apt upgrade -y 
