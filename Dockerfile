@@ -19,7 +19,7 @@ RUN echo \
   $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt update && apt install -y docker-ce docker-ce-cli containerd.io
 ## Change Docker gid to match current host
-groupmod -g 998 docker
+RUN groupmod -g 998 docker
 
 
 # Install Bitwarden CLI
