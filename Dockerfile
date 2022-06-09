@@ -1,9 +1,9 @@
 FROM debian
 
 # Versions of apps
-ARG terraform_version=1.1.9
-ARG terragrunt_version=0.37.1
-ARG packer_version=1.8.0
+ARG terraform_version=1.2.2
+ARG terragrunt_version=0.37.2
+ARG packer_version=1.8.1
 ARG golang_version=1.18
 
 # Ensure we are fully up to date
