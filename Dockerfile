@@ -10,7 +10,10 @@ ARG golang_version=1.19
 RUN apt update && apt upgrade -y 
 
 # Install simple tools with apt
-RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp jq bind9-host whois ca-certificates gnupg lsb-release
+RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp jq bind9-host whois ca-certificates gnupg lsb-release python3-pip
+
+# Install pre-commit
+RUN pip3 install pre-commit
 
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
