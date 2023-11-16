@@ -2,7 +2,7 @@ FROM debian
 
 # Versions of apps
 ARG terraform_version=1.5.7
-ARG terragrunt_version=0.53.2
+ARG terragrunt_version=0.53.3
 ARG packer_version=1.8.4
 ARG golang_version=1.19
 
