@@ -59,8 +59,8 @@ RUN tar -C /usr/local -xzf golang.tar.gz
 
 # Add my own user
 RUN useradd -s /bin/bash -m lazzurs
-## Add my user to docker
-RUN usermod -a -G docker lazzurs
+## Add my user to docker group, this has been changed due to mismatch between host and container.
+RUN usermod -a -G systemd-network lazzurs
 
 # Switch to my user
 USER lazzurs
