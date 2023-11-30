@@ -2,7 +2,7 @@ FROM debian
 
 # Versions of apps
 ARG terraform_version=1.5.7
-ARG terragrunt_version=0.53.3
+ARG terragrunt_version=0.53.8
 ARG packer_version=1.8.4
 ARG golang_version=1.19
 
@@ -46,7 +46,7 @@ RUN if [ $(uname -m) = "x86_64" ]; then curl "https://releases.hashicorp.com/ter
 RUN unzip terraform.zip -d /usr/local/bin/
 
 # Install Terragrunt
-RUN if [ $(uname -m) = "x86_64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/${terragrunt_version}/terragrunt_linux_amd64"; elif [ $(uname -m) = "aarch64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/${terragrunt_version}/terragrunt_linux_arm64"; fi
+RUN if [ $(unam8 -m) = "x86_64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v${terragrunt_version}/terragrunt_linux_amd64"; elif [ $(uname -m) = "aarch64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v${terragrunt_version}/terragrunt_linux_arm64"; fi
 RUN chmod +x /usr/local/bin/terragrunt
 
 # Install Packer (jq for parsing manifest files)
