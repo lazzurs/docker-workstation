@@ -12,12 +12,19 @@ RUN apt update && apt upgrade -y
 # Install simple tools with apt
 RUN apt install -y vim curl wget nmap ncat git mtr lynx bash-completion telnet mc screen mosh build-essential file procps npm man lftp jq bind9-host whois ca-certificates gnupg lsb-release python3-full python3-pip pre-commit iputils-ping dnsutils iputils-tracepath iputils-arping
 
-
+# Install gh cli
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 && apt update \
 && apt install gh -y
+
+# Install OpenTofu
+RUN curl -LfsS https://packagecloud.io/opentofu/tofu/gpgkey --output /usr/share/keyrings/opentofu.gpg \
+&& chmod go+r /usr/share/keyrings/opentofu.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/opentofu.gpg] https://packagecloud.io/opentofu/tofu/any/ any main" | tee /etc/apt/sources.list.d/opentofu.list > /dev/null \
+&& apt update \
+&& apt install opentofu -y
 
 # Install Docker
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
