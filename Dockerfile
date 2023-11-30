@@ -20,11 +20,11 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
 && apt install gh -y
 
 # Install OpenTofu
-RUN curl -LfsS https://packagecloud.io/opentofu/tofu/gpgkey --output /usr/share/keyrings/opentofu.gpg \
+RUN curl -LfsS https://packagecloud.io/opentofu/tofu/gpgkey | gpg --no-tty --batch --dearmor -o /usr/share/keyrings/opentofu.gpg \
 && chmod go+r /usr/share/keyrings/opentofu.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/opentofu.gpg] https://packagecloud.io/opentofu/tofu/any/ any main" | tee /etc/apt/sources.list.d/opentofu.list > /dev/null \
+&& echo "deb [signed-by=/usr/share/keyrings/opentofu.gpg] https://packagecloud.io/opentofu/tofu/any/ any main" | tee /etc/apt/sources.list.d/opentofu.list > /dev/null \
 && apt update \
-&& apt install opentofu -y
+&& apt install tofu -y
 
 # Install Docker
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
