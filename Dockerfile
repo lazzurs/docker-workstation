@@ -5,6 +5,7 @@ ARG terraform_version=1.5.7
 ARG terragrunt_version=0.53.8
 ARG packer_version=1.8.4
 ARG golang_version=1.19
+ARG hadolint_version=2.12.0
 
 # Ensure we are fully up to date
 RUN apt update && apt upgrade -y 
@@ -63,6 +64,10 @@ RUN unzip packer.zip -d /usr/local/bin/
 # Install golang
 RUN if [ $(uname -m) = "x86_64" ]; then curl -L "https://go.dev/dl/go${golang_version}.linux-amd64.tar.gz" -o "golang.tar.gz"; elif [ $(uname -m) = "aarch64" ]; then curl -L "https://go.dev/dl/go${golang_version}.linux-arm64.tar.gz" -o "golang.tar.gz"; fi
 RUN tar -C /usr/local -xzf golang.tar.gz
+
+# Install hadolint
+RUN if [ $(uname -m) = "x86_64" ]; then curl -L "https://github.com/hadolint/hadolint/releases/download/v${hadolint_version}/hadolint-Linux-x86_64" -o "/usr/local/bin/hadolint"; elif [ $(uname -m) = "aarch64" ]; then curl -L "https://github.com/hadolint/hadolint/releases/download/v${hadolint_version}/hadolint-Linux-arm64" -o "/usr/local/bin/hadolint"; fi
+RUN chmod +x /usr/local/bin/hadolint
 
 # Add my own user
 RUN useradd -s /bin/bash -m lazzurs
