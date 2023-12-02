@@ -60,4 +60,4 @@ jobs:
       uses: aquasecurity/trivy-action@master
       with:
         trivy-config: trivy.yaml
-        image-ref: ghcr.io/lazzurs/workstation:${github.sha}
+        image-ref: ghcr.io/lazzurs/workstation:${{ github.sha }}
