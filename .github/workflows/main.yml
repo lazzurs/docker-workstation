@@ -64,3 +64,8 @@ jobs:
       with:
         trivy-config: trivy.yaml
         image-ref: ghcr.io/lazzurs/workstation:sha-${{ steps.shortsha.outputs.short_sha }}
+        output: 'trivy-results.sarif'
+    - name: Upload Trivy scan results to GitHub Security
+      uses: github/codeql-action/upload-sarif@2
+      with:
+        sarif_file: 'trivy-results.sarif'
