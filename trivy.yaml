@@ -1,3 +1,4 @@
 format: sarif
+output: trivy-results.sarif
 exit-code: 0
 severity: 'CRITICAL,HIGH'
