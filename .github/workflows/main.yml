@@ -56,8 +56,11 @@ jobs:
         push: ${{ github.event_name != 'pull_request' }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+    - name: Get short git sha
+      id: shortsha
+      run: echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
         trivy-config: trivy.yaml
-        image-ref: ghcr.io/lazzurs/workstation:sha-${GITHUB_SHA::7}
+        image-ref: ghcr.io/lazzurs/workstation:sha-${{ steps.shortsha.outputs.short_sha }}
