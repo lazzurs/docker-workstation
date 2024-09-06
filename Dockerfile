@@ -2,11 +2,11 @@ FROM debian:stable
 
 # Versions of apps
 ARG terraform_version=1.5.7
-ARG terragrunt_version=0.53.8
+ARG terragrunt_version=0.67.3
 ARG packer_version=1.8.4
-ARG golang_version=1.19
+ARG golang_version=1.23.1
 ARG hadolint_version=2.12.0
-ARG bitwarden_cli_version=2023.10.0
+ARG bitwarden_cli_version=2024.8.3
 
 # Set pipefail for bash
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
