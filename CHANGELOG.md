@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.4.2 - 2024-10-19
+#### Bug Fixes
+- Removing weird CHANGELOG file - (c932e33) - Rob Lazzurs
+
+- - -
+
 ## v0.4.1 - 2024-10-19
 #### Bug Fixes
 - Syntax error in the cocogitto config. - (fe21aac) - Rob Lazzurs
