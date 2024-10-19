@@ -25,10 +25,17 @@ jobs:
         run: |
           echo NEXT_VERSION=`cog bump --auto --dry-run` >> "$GITHUB_ENV"
       - name: Cocogitto tag
-        id: tag
+        id: release
         uses: cocogitto/cocogitto-action@v3
         with:
-          check-latest-tag-only: false
+          check-latest-tag-only: true
           release: true
           git-user: 'GitHubActions'
           git-user-email: 'github@lazzurs.org'
+      - name: Generate Changelog
+        run: cog changelog --at ${{ steps.release.outputs.version }} -t full_hash > GITHUB_CHANGELOG.md
+      - name: Upload github release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: GITHUB_CHANGELOG.md
+          tag_name: ${{ steps.release.outputs.version }}
