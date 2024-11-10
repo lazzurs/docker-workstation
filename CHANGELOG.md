@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.4.5 - 2024-11-10
+#### Bug Fixes
+- Testing time change for run - (d60f140) - Rob Lazzurs
+
+- - -
+
 ## v0.4.4 - 2024-11-09
 #### Bug Fixes
 - Fix trivy action - (84d8ab3) - Rob Lazzurs
