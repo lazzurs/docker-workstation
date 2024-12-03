@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.4.6 - 2024-12-03
+#### Bug Fixes
+- **(dependabot)** bump aquasecurity/trivy-action from 0.28.0 to 0.29.0 - (e2058b6) - dependabot[bot]
+#### Chores
+- Update Terragrunt - (6b09fbf) - Rob Lazzurs
+
+- - -
+
 ## v0.4.5 - 2024-11-10
 #### Bug Fixes
 - Testing time change for run - (d60f140) - Rob Lazzurs
