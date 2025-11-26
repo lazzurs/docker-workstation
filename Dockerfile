@@ -57,7 +57,7 @@ RUN dpkg -i session-manager-plugin.deb
 
 # Install Terraform
 RUN if [ "$(uname -m)" = "x86_64" ]; then curl "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip" -o "terraform.zip"; elif [ "$(uname -m)" = "aarch64" ]; then curl "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_arm64.zip" -o "terraform.zip"; fi
-RUN unzip terraform.zip -d /usr/local/bin/
+RUN unzip -o terraform.zip -d /usr/local/bin/
 
 # Install Terragrunt
 RUN if [ "$(uname -m)" = "x86_64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v${terragrunt_version}/terragrunt_linux_amd64"; elif [ "$(uname -m)" = "aarch64" ]; then curl -L -s --output /usr/local/bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v${terragrunt_version}/terragrunt_linux_arm64"; fi
@@ -65,7 +65,7 @@ RUN chmod +x /usr/local/bin/terragrunt
 
 # Install Packer (jq for parsing manifest files)
 RUN if [ "$(uname -m)" = "x86_64" ]; then curl "https://releases.hashicorp.com/packer/${packer_version}/packer_${packer_version}_linux_amd64.zip" -o "packer.zip"; elif [ "$(uname -m)" = "aarch64" ]; then curl "https://releases.hashicorp.com/packer/${packer_version}/packer_${packer_version}_linux_arm64.zip" -o "packer.zip"; fi
-RUN unzip packer.zip -d /usr/local/bin/
+RUN unzip -o packer.zip -d /usr/local/bin/
 
 # Install golang
 RUN if [ "$(uname -m)" = "x86_64" ]; then curl -L "https://go.dev/dl/go${golang_version}.linux-amd64.tar.gz" -o "golang.tar.gz"; elif [ "$(uname -m)" = "aarch64" ]; then curl -L "https://go.dev/dl/go${golang_version}.linux-arm64.tar.gz" -o "golang.tar.gz"; fi
