@@ -6,7 +6,7 @@ ARG terragrunt_version=0.93.11
 ARG packer_version=1.14.3
 ARG golang_version=1.25.4
 ARG hadolint_version=2.14.0
-ARG bitwarden_cli_version=2025.11.3
+ARG bitwarden_cli_version=2025.11.0
 
 # Set pipefail for bash
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
