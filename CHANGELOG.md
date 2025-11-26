@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.0 - 2025-11-26
+#### Features
+- Update versions - (1ee29ef) - Rob Lazzurs
+
+- - -
+
 ## v0.4.9 - 2025-11-26
 #### Bug Fixes
 - (**dependabot**) bump github/codeql-action from 3 to 4 - (0b10277) - dependabot[bot]
