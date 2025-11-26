@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.4.7 - 2025-11-26
+#### Bug Fixes
+- Update Cocogitto action to v4 and adjust workflow steps - (3950f2e) - Rob Lazzurs
+
+- - -
+
 ## v0.4.6 - 2024-12-03
 #### Bug Fixes
 - **(dependabot)** bump aquasecurity/trivy-action from 0.28.0 to 0.29.0 - (e2058b6) - dependabot[bot]
