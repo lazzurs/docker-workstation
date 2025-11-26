@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.1 - 2025-11-26
+#### Bug Fixes
+- (**dependabot**) bump aquasecurity/trivy-action from 0.29.0 to 0.33.1 - (480bf36) - dependabot[bot]
+
+- - -
+
 ## v0.5.0 - 2025-11-26
 #### Features
 - Update versions - (1ee29ef) - Rob Lazzurs
