@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.4.8 - 2025-11-26
+#### Bug Fixes
+- (**dependabot**) bump actions/checkout from 4 to 6 - (6758221) - dependabot[bot]
+
+- - -
+
 ## v0.4.7 - 2025-11-26
 #### Bug Fixes
 - Update Cocogitto action to v4 and adjust workflow steps - (3950f2e) - Rob Lazzurs
