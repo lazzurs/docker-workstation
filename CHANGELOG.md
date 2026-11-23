@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.6 - 2026-11-23
+#### Bug Fixes
+- (**dependabot**) bump docker/setup-buildx-action from 3 to 4 (#43) - (f9db31d) - dependabot[bot]
+
+- - -
+
 ## v0.5.5 - 2026-11-23
 #### Bug Fixes
 - (**dependabot**) bump docker/setup-qemu-action from 3 to 4 (#42) - (dc24ebf) - dependabot[bot]
