@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.5 - 2026-11-23
+#### Bug Fixes
+- (**dependabot**) bump docker/setup-qemu-action from 3 to 4 (#42) - (dc24ebf) - dependabot[bot]
+
+- - -
+
 ## v0.5.4 - 2026-11-23
 #### Bug Fixes
 - (**dependabot**) bump docker/login-action from 3 to 4 (#41) - (3273544) - dependabot[bot]
