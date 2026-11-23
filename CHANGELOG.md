@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.4 - 2026-11-23
+#### Bug Fixes
+- (**dependabot**) bump docker/login-action from 3 to 4 (#41) - (3273544) - dependabot[bot]
+- (**dependabot**) bump docker/build-push-action from 6 to 7 (#40) - (0c5fe70) - dependabot[bot]
+#### Chores
+- (**deps**) bump aquasecurity/trivy-action in /.github/workflows (#38) - (1ac79d3) - dependabot[bot]
+
+- - -
+
 ## v0.5.3 - 2025-11-26
 #### Bug Fixes
 - Overwrite existing files when unzipping Terraform and Packer - (f5b4568) - Rob Lazzurs
